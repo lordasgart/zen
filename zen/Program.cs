@@ -7,10 +7,15 @@ namespace zen
 {
     class Program
     {
-        private const string saveDir = @"D:\UserData\z004c1aw\OneDrive\Notizen\Zen";
+        private static string saveDir = @"D:\UserData\z004c1aw\OneDrive\Notizen\Zen";
 
         static void Main(string[] args)
         {
+            if (args.Length > 0)
+            {
+                saveDir = args[0];
+            }
+
             Console.Title = "Zen";
 
             Console.Clear();
