@@ -38,8 +38,14 @@ namespace zen
             }
 
             Console.WriteLine($"[{fileInfo.Name}](vscode://file/{fileInfo.FullName})");
-
-            Process.Start("explorer.exe", saveDir);
+            try
+            {
+                Process.Start("explorer.exe", saveDir);
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine(ex);
+            }
         }
     }
 }
