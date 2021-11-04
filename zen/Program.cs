@@ -11,6 +11,11 @@ namespace zen
 
         static void Main(string[] args)
         {
+            if (args.Length > 0)
+            {
+                saveDir = args[0];
+            }
+
             Console.Title = "Zen";
 
             Console.Clear();
@@ -38,8 +43,14 @@ namespace zen
             }
 
             Console.WriteLine($"[{fileInfo.Name}](vscode://file/{fileInfo.FullName})");
-
-            Process.Start("explorer.exe", saveDir);
+            try
+            {
+                Process.Start("explorer.exe", saveDir);
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine(ex);
+            }
         }
     }
 }
