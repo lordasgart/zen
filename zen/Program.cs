@@ -7,13 +7,18 @@ namespace zen
 {
     class Program
     {
-        private const string saveDir = @"D:\UserData\z004c1aw\OneDrive\Notizen\Zen";
+        private static string saveDir = @"C:\UserData\z004c1aw\OneDrive\Notizen\Zen";
 
         static void Main(string[] args)
         {
             Console.Title = "Zen";
 
             Console.Clear();
+
+            if (!Environment.MachineName.EndsWith("RE1C"))
+            {
+                saveDir = saveDir.Replace("C:\\", "D:\\");
+            }
 
             Directory.SetCurrentDirectory(saveDir);
 
